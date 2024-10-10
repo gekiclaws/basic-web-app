@@ -1,3 +1,5 @@
+import { parse } from "path";
+
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -11,6 +13,11 @@ export default function QueryProcessor(query: string): string {
   }
   if (query.toLowerCase().includes("name")) {
     return ("Matthew");
+  }
+  if (query.toLowerCase().includes("largest")){
+    let num = query.split(":")[0].split("?")[0].split(",");
+    let max = Math.max(parseInt(num[0]),parseInt(num[1]),parseInt(num[2]));
+    return max.toString();
   }
 
   return "";
