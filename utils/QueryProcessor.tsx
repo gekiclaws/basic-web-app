@@ -15,8 +15,10 @@ export default function QueryProcessor(query: string): string {
     return ("Matthew");
   }
   if (query.toLowerCase().includes("largest")){
-    let num = query.split(":")[0].split("?")[0].split(",");
-    let max = Math.max(parseInt(num[0]),parseInt(num[1]),parseInt(num[2]));
+    let num1 = parseInt(query.split(" ")[8]);
+    let num2 = parseInt(query.split(" ")[9]);
+    let num3 = parseInt(query.split(" ")[10].split("?")[0]);
+    let max = Math.max(num1, num2, num3);
     return max.toString();
   }
   if (query.includes("plus")){
