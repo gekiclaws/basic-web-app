@@ -22,6 +22,13 @@ export default function QueryProcessor(query: string): string {
     return max.toString();
   }
   if (query.includes("plus")){
+    let count = query.match(/plus/g);
+    if(count != null && count.length == 2){
+      let num1 = parseInt(query.split(" ")[2]);
+      let num2 = parseInt(query.split(" ")[4]);
+      let num3 = parseInt(query.split(" ")[6].split("?")[0]);
+      return (num1+num2+num3).toString();
+    }
     let num1 = parseInt(query.split(" ")[2]);
     let num2 = parseInt(query.split(" ")[4].split("?")[0]);
     return (num1+num2).toString();
