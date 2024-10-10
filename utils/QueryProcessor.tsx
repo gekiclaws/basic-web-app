@@ -29,6 +29,12 @@ export default function QueryProcessor(query: string): string {
       let num3 = parseInt(query.split(" ")[6].split("?")[0]);
       return (num1+num2+num3).toString();
     }
+    if (query.includes("multiplied")){
+      let num1 = parseInt(query.split(" ")[2]);
+      let num2 = parseInt(query.split(" ")[4]);
+      let num3 = parseInt(query.split(" ")[7].split("?")[0]);
+      return ((num1+num2)*num3).toString();
+    }
     let num1 = parseInt(query.split(" ")[2]);
     let num2 = parseInt(query.split(" ")[4].split("?")[0]);
     return (num1+num2).toString();
