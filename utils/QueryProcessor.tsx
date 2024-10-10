@@ -19,6 +19,11 @@ export default function QueryProcessor(query: string): string {
     let max = Math.max(parseInt(num[0]),parseInt(num[1]),parseInt(num[2]));
     return max.toString();
   }
+  if (query.includes("plus")){
+    let num1 = parseInt(query.split(" ")[2]);
+    let num2 = parseInt(query.split(" ")[4].split("?")[0]);
+    return (num1+num2).toString();
+  }
 
   return "";
 }
