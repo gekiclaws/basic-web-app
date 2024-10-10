@@ -26,6 +26,11 @@ export default function QueryProcessor(query: string): string {
     let num2 = parseInt(query.split(" ")[4].split("?")[0]);
     return (num1+num2).toString();
   }
+  if (query.includes("minus")){
+    let num1 = parseInt(query.split(" ")[2]);
+    let num2 = parseInt(query.split(" ")[4].split("?")[0]);
+    return (num1-num2).toString();
+  }
   if (query.includes("multiplied")){
     let num1 = parseInt(query.split(" ")[2]);
     let num2 = parseInt(query.split(" ")[5].split("?")[0]);
