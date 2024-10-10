@@ -31,6 +31,17 @@ export default function QueryProcessor(query: string): string {
     let num2 = parseInt(query.split(" ")[5].split("?")[0]);
     return (num1*num2).toString();
   }
+  if (query.includes("square and a cube")){
+    let nums = query.split(": ")[1].split("?")[0].split(", ");
+    for (let num of nums) {
+      let numb = parseInt(num);
+      const sqrt = Math.sqrt(numb);
+      const cbrt = Math.cbrt(numb);
+      if (Number.isInteger(sqrt) && Number.isInteger(cbrt)){
+        return num;
+      }
+    }
+  }
 
   return "";
 }
