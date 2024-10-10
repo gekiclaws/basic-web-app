@@ -42,6 +42,21 @@ export default function QueryProcessor(query: string): string {
       }
     }
   }
+  if (query.includes("prime")){
+    let nums = query.split(": ")[1].split("?")[0].split(", ");
+    let list: number[] = [];
+    for (let num of nums) {
+      let numb = parseInt(num);
+      if (isPrimeRegExp(numb)){
+        list.push(numb);
+      }
+    }
+    return list.join(", ")
+  }
 
   return "";
+}
+
+function isPrimeRegExp(num: number) {
+  return !/^1?$|^(11+?)\1+$/.test('1'.repeat(num));
 }
