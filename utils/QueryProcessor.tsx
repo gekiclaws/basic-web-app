@@ -65,6 +65,11 @@ export default function QueryProcessor(query: string): string {
     }
     return list.join(", ")
   }
+  if (query.includes("power")){
+    let num1 = parseInt(query.split(" ")[2]);
+    let num2 = parseInt(query.split(" ")[7].split("?")[0]);
+    return (num1**num2).toString();
+  }
 
   return "";
 }
